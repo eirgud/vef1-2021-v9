@@ -1,5 +1,7 @@
 // TODO importa því sem nota þarf
 
+import { fetchAndRenderCategory } from './lib/ui';
+
 /** Fjöldi frétta til að birta á forsíðu */
 const CATEGORY_ITEMS_ON_FRONTPAGE = 5;
 
@@ -13,6 +15,13 @@ const main = document.querySelector('main');
  */
 function route() {
   // Athugum hvort það sé verið að biðja um category í URL, t.d.
+  if (window.location.includes('/?category')) {
+    const currentUrl = window.location;
+    const category = currentUrl.split('=').pop();
+
+    fetchAndRenderCategory(category, main )
+
+  }
   // /?category=menning
 
   // Ef svo er, birtum fréttir fyrir þann flokk
