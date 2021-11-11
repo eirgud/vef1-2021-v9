@@ -1,6 +1,6 @@
 // TODO importa því sem nota þarf
 
-import { fetchAndRenderCategory } from './lib/ui';
+import { createCategoryBackLink, fetchAndRenderCategory, fetchAndRenderLists } from './lib/ui';
 
 /** Fjöldi frétta til að birta á forsíðu */
 const CATEGORY_ITEMS_ON_FRONTPAGE = 5;
@@ -19,8 +19,11 @@ function route() {
     const currentUrl = window.location;
     const category = currentUrl.split('=').pop();
 
-    fetchAndRenderCategory(category, main )
-
+    fetchAndRenderCategory(
+      category,
+      main,
+      createCategoryBackLink(main, CATEGORY_ITEMS_ON_FRONTPAGE)
+      );
   }
   // /?category=menning
 
