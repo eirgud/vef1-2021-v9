@@ -38,7 +38,6 @@ function route() {
  */
 window.onpopstate = () => {
   // TODO útfæra
-  console.log ('pop');
   empty(main);
   route();
 };
