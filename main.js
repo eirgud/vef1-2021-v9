@@ -15,21 +15,20 @@ const main = document.querySelector('main');
  */
 function route() {
   // Athugum hvort það sé verið að biðja um category í URL, t.d.
+  // /?category=menning
   if (window.location.includes('/?category')) {
     const currentUrl = window.location;
     const category = currentUrl.split('=').pop();
 
+  // Ef svo er, birtum fréttir fyrir þann flokk
     fetchAndRenderCategory(
       category,
       main,
       createCategoryBackLink(main, CATEGORY_ITEMS_ON_FRONTPAGE)
       );
+  } else {  // Annars birtum við „forsíðu“
+    fetchAndRenderLists(main, CATEGORY_ITEMS_ON_FRONTPAGE);
   }
-  // /?category=menning
-
-  // Ef svo er, birtum fréttir fyrir þann flokk
-
-  // Annars birtum við „forsíðu“
 }
 
 /**
