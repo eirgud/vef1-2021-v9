@@ -1,4 +1,5 @@
 // TODO importa því sem nota þarf
+import { empty } from './lib/helpers.js';
 import {fetchAndRenderCategory,	fetchAndRenderLists, createCategoryBackLink,} from './lib/ui.js';
 
 /** Fjöldi frétta til að birta á forsíðu */
@@ -16,8 +17,9 @@ function route() {
   // Athugum hvort það sé verið að biðja um category í URL, t.d.
   // /?category=menning
   if (window.location.href.indexOf('/?category') > -1) {
-    const currentUrl = window.location;
+    const currentUrl = window.location.href;
     const category = currentUrl.split('=').pop();
+
 
   // Ef svo er, birtum fréttir fyrir þann flokk
     fetchAndRenderCategory(
@@ -36,6 +38,8 @@ function route() {
  */
 window.onpopstate = () => {
   // TODO útfæra
+  console.log ('pop');
+  empty(main);
   route();
 };
 
