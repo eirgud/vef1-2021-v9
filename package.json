@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "build": "cpy './*.html' './*.js' './*.css' './lib/*.js' ./build/ --parents",
     "dev": "browser-sync start --server --files main.js **/*.js styles.css index.html",
     "lint": "eslint ./**/*.js",
     "prettier": "prettier --write ."
@@ -21,5 +22,8 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.25.2",
     "prettier": "2.4.1"
+  },
+  "dependencies": {
+    "cpy-cli": "^3.1.1"
   }
 }
